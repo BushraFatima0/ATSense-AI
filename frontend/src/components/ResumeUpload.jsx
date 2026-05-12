@@ -132,7 +132,7 @@ function ResumeUpload() {
             }, 1200)
 
             const response = await axios.post(
-                "http://127.0.0.1:8000/analyze-resume/",
+                "https://atsense-ai.onrender.com/",
                 formData,
                 {
                     headers: {
