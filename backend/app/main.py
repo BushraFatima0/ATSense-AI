@@ -28,8 +28,13 @@ def get_db():
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
+    allow_origins=[
+        "http://localhost:5173",
+        "https://at-sense-ai.vercel.app",
+        "https://at-sense-371pxlf0o-bushra-s-project.vercel.app",
+        "https://at-sense-ctqj54xio-bushra-s-project.vercel.app/"
+    ],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
