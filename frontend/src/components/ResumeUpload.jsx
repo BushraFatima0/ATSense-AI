@@ -83,6 +83,7 @@ function ResumeUpload() {
     const [rewrittenResume, setRewrittenResume] = useState("")
 
     const [analysisData, setAnalysisData] = useState(null)
+    const [error, setError] = useState("")
 
     const [loadingIndex, setLoadingIndex] = useState(0)
 
@@ -132,7 +133,7 @@ function ResumeUpload() {
             }, 1200)
 
             const response = await axios.post(
-                "https://atsense-ai.onrender.com/",
+                "http://127.0.0.1:8000/analyze-resume/",
                 formData,
                 {
                     headers: {
@@ -144,11 +145,15 @@ function ResumeUpload() {
             setAnalysisData(response.data)
 
         } catch (error) {
+            console.log(error)
+            console.log(error.response)
 
-            console.error(error)
-            alert("Analysis failed")
-
-        } finally {
+            setError(
+                error.response?.data?.detail ||
+                error.message ||
+                "Analysis Failed"
+            )
+            }finally {
 
             clearInterval(interval)
             setLoading(false)
