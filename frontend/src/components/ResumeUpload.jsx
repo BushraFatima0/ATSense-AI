@@ -133,7 +133,7 @@ function ResumeUpload() {
             }, 1200)
 
             const response = await axios.post(
-                "http://127.0.0.1:8000/analyze-resume/",
+                "https://atsense-ai.onrender.com/analyze-resume/",
                 formData,
                 {
                     headers: {
@@ -176,7 +176,7 @@ function ResumeUpload() {
             setRewriteLoading(true)
 
             const response = await axios.post(
-                "http://127.0.0.1:8000/rewrite-resume/",
+                "https://atsense-ai.onrender.com/rewrite-resume/",
                 formData,
                 {
                     headers: {
